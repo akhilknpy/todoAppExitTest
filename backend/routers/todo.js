@@ -5,7 +5,7 @@ router.use(express.json())
 router.use(express.urlencoded({extended:true}))
 
 router.get('/todos', async (req, res) => {
-    const todos = await todo.find();
+    const todos = await todoData.find();
     res.json(todos);
   });
   
@@ -18,12 +18,12 @@ router.get('/todos', async (req, res) => {
     res.json(todo);
   });
   
-  router.put('/todos/:id', async (req, res) => {
+  router.put('/updatetodos/:id', async (req, res) => {
     const todo = await todoData.findByIdAndUpdate(req.params.id, req.body, { new: true });
     res.json(todo);
   });
   
-  router.delete('/todos/:id', async (req, res) => {
+  router.delete('/deletetodos/:id', async (req, res) => {
     await todoData.findByIdAndDelete(req.params.id);
     res.json({ message: 'Todo deleted' });
   });
