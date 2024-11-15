@@ -40,7 +40,7 @@ const App = () => {
 
       <ol>
         {todos.map((todo) => (
-          <li key={todo._id}>
+          <li key={todo._id} style={{marginBottom:'20px'}} >
             <span style={{ textDecoration: todo.status === 'completed' ? 'line-through' : 'none',padding:'50px' }}>{todo.description}</span>
             <input type="checkbox"  checked={todo.status === 'completed'} onChange={() => toggleStatus(todo._id)} />
             <button onClick={() => deleteTodo(todo._id)}>Delete</button>
